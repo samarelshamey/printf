@@ -33,10 +33,6 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 'd' || *format == 'i')
 				count += print_integer(va_arg(arg, int));
-			else if (*format == 'r')
-				print_rev(va_arg(arg, char *));
-			else if (*format == 'R')
-				rot13_string(va_arg(arg, char *));
 			else
 			{
 				count += 2;
