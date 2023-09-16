@@ -26,6 +26,8 @@ int _putchar(int c);
 int print_integer(int n);
 /*print srting in reverse*/
 void print_rev(const char *s);
+/*print in rot13*/
+void rot13_string(char *s);
 /*get_flags*/
 int get_flags(const char *format, int *i);
 /*printf*/
