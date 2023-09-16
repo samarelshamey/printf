@@ -18,11 +18,17 @@
 #define F_HASH 8
 #define F_ZERO 4
 
-void _puts(char *s);
+/*print string*/
+int _putss(char *s);
+/*print character*/
 int _putchar(int c);
-int _printf(const char *format, ...);
-
+/*print integer*/
+int print_integer(int n);
+/*print srting in reverse*/
+void print_rev(const char *s);
 /*get_flags*/
 int get_flags(const char *format, int *i);
+/*printf*/
+int _printf(const char *format, ...);
 
 #endif
