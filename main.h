@@ -32,16 +32,15 @@
  * @h_modif: if short modifier
  * @l_modif: if long modifier
 */
-
 typedef struct parameters
 {
-	unsigned int unsign 	: 1;
+	unsigned int unsign	: 1;
 
-	unsigned int f_plus 	: 1;
+	unsigned int f_plus	: 1;
 	unsigned int f_minus	: 1;
 	unsigned int f_space	: 1;
-	unsigned int f_zero 	: 1;
-	unsigned int f_hash 	: 1;
+	unsigned int f_zero	: 1;
+	unsigned int f_hash	: 1;
 
 	unsigned int width;
 	unsigned int precision;
@@ -51,17 +50,16 @@ typedef struct parameters
 } p_t;
 
 /**
- * strcut specif - struct
+ * strcut specifier - struct token
  *
- * @spec: specifier
- * @p: function pointer
+ * @specifier: format token
+ * @f: the function associated
 */
-
-typedef struct specif
+typedef struct specifier
 {
-	char *spec;
+	char *specifier;
 	int (*f)(va_list, p_t *);
-} spec_t;
+} specifier_t;
 
 /*_put*/
 int _puts(char *str);
@@ -71,11 +69,11 @@ int _putchar(int c);
 int print_char(va_list a, p_t *p);
 int print_int(va_list a, p_t *p);
 int print_string(va_list a, p_t *p);
-int print_percent(va_list a,p_t *p);
-int print_s(va_list a,p_t *p);
+int print_percent(va_list a, p_t *p);
+int print_s(va_list a, p_t *p);
 
 /*number*/
-char *convert(long int num, int base, int flags, p_t *p)
+char *convert(long int num, int base, int flags, p_t *p);
 int print_unsigned(va_list a, p_t *p);
 int print_address(va_list a, p_t *p);
 
@@ -91,7 +89,7 @@ int print_rev(va_list a, p_t *p);
 int print_from_to(va_list a, p_t *p);
 
 /*specifier*/
-int *get_specifier(char *s, va_list a, p_t *p);
+int (*get_specifier(char *s))(va_list a, p_t *p);
 int get_flag(char *s, p_t *p);
 int get_modifier(char *s, p_t *p);
 int get_print_func(char *s, va_list a, p_t *p);
