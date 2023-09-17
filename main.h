@@ -105,7 +105,7 @@ int print_number_right_shift(char *str, p_t *p);
 int print_number_left_shift(char *str, p_t *p);
 
 /*params*/
-void init_params(p_t *p, valist a);
+void init_params(p_t *p, va_list a);
 
 /*string_fields*/
 char *get_precision(char *pre, p_t *p, va_list a);
