@@ -9,16 +9,14 @@
 #include <unistd.h>
 
 #define BUFF_SIZE 1024
+#define BUFF_FLUSH -1
 
 #define NULL_STRING "(null)"
 
-/*flags*/
-#define F_PLUS 2
-#define F_MINUS 1
-#define F_SPACE 16
-#define F_HASH 8
-#define F_ZERO 4
-#define P_INIT (0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+#define P_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+
+#define convert_lowercase  1
+#define convert_unsigned   2
 
 /**
  * struct parameters - struct
@@ -37,19 +35,19 @@
 
 typedef struct parameters
 {
-	unsigned int unsign	: 1;
+	unsigned int unsign 	: 1;
 
-	unsigned int f_plus;	: 1;
-	unsigned int f_minus;	: 1;
-	unsigned int f_space;	: 1;
-	unsigned int f_zero;	: 1;
-	unsigned int f_hash;	: 1;
+	unsigned int f_plus 	: 1;
+	unsigned int f_minus	: 1;
+	unsigned int f_space	: 1;
+	unsigned int f_zero 	: 1;
+	unsigned int f_hash 	: 1;
 
-	unsigned int width;	: 1;
-	unsigned int precision;	: 1;
+	unsigned int width;
+	unsigned int precision;
 
-	unsigned int h_modif;	: 1;
-	unsigned int l_modif;	: 1;
+	unsigned int h_modif	: 1;
+	unsigned int l_modif	: 1;
 } p_t;
 
 /**
@@ -62,23 +60,56 @@ typedef struct parameters
 typedef struct specif
 {
 	char *spec;
-	int (*p)(va_list, p_t *);
+	int (*f)(va_list, p_t *);
 } spec_t;
 
-/*print string*/
-int _putss(char *s);
-/*print character*/
+/*_put*/
+int _puts(char *str);
 int _putchar(int c);
-/*print integer*/
-int print_integer(int n);
-/*print srting in reverse*/
-void print_rev(const char *s);
-/*print in rot13*/
+
+/*print_function*/
+int print_char(va_list a, p_t *p);
+int print_int(va_list a, p_t *p);
+int print_string(va_list a, p_t *p);
+int print_percent(va_list a,p_t *p);
+int print_s(va_list a,p_t *p);
+
+/*number*/
+char *convert(long int num, int base, int flags, p_t *p)
+int print_unsigned(va_list a, p_t *p);
+int print_address(va_list a, p_t *p);
+
+/*convert_number*/
+int print_hex(va_list a, p_t *p);
+int print_HEX(va_list a, p_t *p);
+int print_octal(va_list a, p_t *p);
+int print_binary(va_list a, p_t *p);
+
+/*simple_printers*/
 int rot13_string(va_list a, p_t *p);
-/*initiate parameters*/
-void p_initiate(p_t *p, va_list pa);
-/*get_flags*/
-int get_flags(const char *format, int *i);
+int print_rev(va_list a, p_t *p);
+int print_from_to(va_list a, p_t *p);
+
+/*specifier*/
+int *get_specifier(char *s, va_list a, p_t *p);
+int get_flag(char *s, p_t *p);
+int get_modifier(char *s, p_t *p);
+int get_print_func(char *s, va_list a, p_t *p);
+char *get_width(char *s, va_list a, p_t *p);
+
+/*print_number*/
+int _isdigit(int c);
+int _strlen(char *s);
+int print_number(char *str, p_t *p);
+int print_number_right_shift(char *str, p_t *p);
+int print_number_left_shift(char *str, p_t *p);
+
+/*params*/
+void init_params(p_t *p, valist a);
+
+/*string_fields*/
+char *get_precision(char *pre, p_t *p, va_list a);
+
 /*printf*/
 int _printf(const char *format, ...);
 
