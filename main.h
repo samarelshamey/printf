@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <unistd.h>
+#include <ctype.h>
+#include <string.h>
 
 #define BUFF_SIZE 1024
 #define BUFF_FLUSH -1
