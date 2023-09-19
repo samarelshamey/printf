@@ -26,7 +26,7 @@ char *precision(char *p, p_t *pa, va_list arg)
 	}
 	else
 	{
-		while (isdigit(*p))
+		while (_isdigit(*p))
 			d = d * 10 + (*p++ - '0');
 	}
 	pa->precision = d;

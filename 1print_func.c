@@ -105,7 +105,7 @@ int string(va_list arg, p_t *pa)
 	switch ((int)(!s))
 		case 1:
 			s = S_NULL;
-	j = pad = strlen(s);
+	j = pad = _strlen(s);
 	if (pa->precision < pad)
 		j = pad = pa->precision;
 	if (pa->f_minus)

@@ -10,7 +10,7 @@
 
 int print_formated_number(char *s, p_t *pa)
 {
-	unsigned int i = strlen(s);
+	unsigned int i = _strlen(s);
 	int negative = (!pa->unsign && *s == '-');
 
 	if (!pa->precision && *s == '0' && !s[1])
@@ -41,7 +41,7 @@ int print_formated_number(char *s, p_t *pa)
 
 int right_shift(char *s, p_t *pa)
 {
-	unsigned int n = 0, neg, neg2, i = strlen(s);
+	unsigned int n = 0, neg, neg2, i = _strlen(s);
 	char pad_char = ' ';
 
 	if (pa->f_zero && !pa->f_minus)
@@ -81,7 +81,7 @@ int right_shift(char *s, p_t *pa)
 
 int left_shift(char *s, p_t *pa)
 {
-	unsigned int n = 0, neg, neg2, i = strlen(s);
+	unsigned int n = 0, neg, neg2, i = _strlen(s);
 	char pad_char = ' ';
 
 	if (pa->f_zero && !pa->f_minus)

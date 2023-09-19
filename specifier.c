@@ -134,7 +134,7 @@ char *width(char *s, p_t *pa, va_list arg)
 	}
 	else
 	{
-		while (isdigit(*s))
+		while (_isdigit(*s))
 			d = d * 10 + (*s++ - '0');
 	}
 	pa->width = d;

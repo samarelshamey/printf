@@ -1,6 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
-
+#ifndef _PRINTF_H
+#define _PRINTF_H
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -104,6 +103,12 @@ int left_shift(char *s, p_t *pa);
 
 /*fields.c*/
 char *precision(char *p, p_t *pa, va_list arg);
+
+/*_isdigit.c*/
+int _isdigit(int c);
+
+/*_strlen*/
+int _strlen(char *s);
 
 /*_printf.c*/
 int _printf(const char *format, ...);
