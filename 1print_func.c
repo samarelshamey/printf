@@ -41,7 +41,7 @@ int rot13_string(va_list arg, p_t *pa)
 {
 	int i, ind;
 	int count = 0;
-	char ar[] = "NOPQRSTUVWXYZABCDEFGHIJKLM nopqrstuvwxyzabcdefghijklm";
+	char ar[] = "NOPQRSTUVWXYZABCDEFGHIJKLM	nopqrstuvwxyzabcdefghijklm";
 	char *s = va_arg(arg, char *);
 	(void)pa;
 

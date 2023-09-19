@@ -25,7 +25,7 @@ int print_formated_number(char *s, p_t *pa)
 			*--s = '0';
 	if (negative)
 		*--s = '-';
-	if (pa->f_minus)
+	if (!pa->f_minus)
 		return (right_shift(s, pa));
 	else
 		return (left_shift(s, pa));

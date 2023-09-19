@@ -10,7 +10,6 @@
 
 int (*get_spec(char *s))(va_list arg, p_t *pa)
 {
-	int i = 0;
 	specifier_t specifiers[] = {
 		{"c", character},
 		{"d", integer},
@@ -28,6 +27,8 @@ int (*get_spec(char *s))(va_list arg, p_t *pa)
 		{"R", rot13_string},
 		{NULL, NULL}
 	};
+	int i = 0;
+
 	while (specifiers[i].specifier)
 	{
 		if (*s == specifiers[i].specifier[0])
