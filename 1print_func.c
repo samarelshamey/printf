@@ -112,7 +112,7 @@ int string(va_list arg, p_t *pa)
 	{
 		if (pa->precision != UINT_MAX)
 			for (i = 0; i < pad; i++)
-				sum += _putchar(*s);
+				sum += _putchar(*s++);
 		else
 			sum += _putss(s);
 	}
